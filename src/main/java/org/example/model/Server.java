@@ -15,6 +15,7 @@ public class Server {
                 connection.start();
             }
         } catch (IOException e) {
+            System.out.println("222222222222");
             //TODO: try to reconnect...
         }
     }

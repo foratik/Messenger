@@ -5,9 +5,9 @@ import java.util.regex.Pattern;
 
 public enum Commands {
 
-    NEW_TASK("k create task --name=(?<taskName>[\\S]+)"),
-    NEW_TASK_WITH_WORKER("k create task --name=(?<taskName>[\\S]+) --node=(?<node>[\\d]+)"),
-    GET_TASKS("k get tasks"),
+    LOAD_CHAT("load chat (?<id>[\\d]+)"),
+    NEW_CHAT("new chat (?<username>[\\S]+)"),
+    SEND_MESSAGE("send message (?<text>.*)"),
     GET_NODES("k get nodes"),
     DELETE_TASK("k create delete task --name=(?<taskName>[\\S]+)"),
     DISABLE_NODE("k cordon node (?<node>[\\d]+)"),

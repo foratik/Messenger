@@ -21,6 +21,7 @@ public class User {
     private boolean inGame = false;
     private byte[] salt;
     private URL avatarUrl;
+    public ArrayList<Chat> chats;
 
     public User(String username, String passwordHash, String nickname, String email, String slogan, String securityQuestion, String securityAnswer, byte[] salt) {
         this.username = username;
