@@ -113,7 +113,6 @@ public class Connection extends Thread {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        //return new Gson().toJson(chats);
     }
 
     public void loadCurrentChat(Matcher matcher) {
@@ -167,7 +166,7 @@ public class Connection extends Thread {
     }
 
     public synchronized void sendMessage(Matcher matcher) {
-        System.out.println(currentChat.name+"*************************"+currentChat.id);
+
         if (currentChat == null)
             return;
         String text = matcher.group("text");
