@@ -3,8 +3,11 @@ package org.example.model;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class Server {
+
+    public static ArrayList<Connection> allConnections = new ArrayList<>();
     public Server(int port) {
         System.out.println("Starting Server service...");
         try {
@@ -12,10 +15,11 @@ public class Server {
             while (true){
                 Socket socket = serverSocket.accept();
                 Connection connection = new Connection(socket);
+                allConnections.add(connection);
                 connection.start();
             }
         } catch (IOException e) {
-            System.out.println("222222222222");
+            System.out.println("Server failed");
             //TODO: try to reconnect...
         }
     }

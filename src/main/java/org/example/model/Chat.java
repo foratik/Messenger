@@ -23,8 +23,3 @@ public class Chat {
     }
 }
 
-enum Type{
-    PUBLIC,
-    PRIVATE,
-    ROOM
-}
