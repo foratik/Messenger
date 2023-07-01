@@ -22,6 +22,9 @@ public class User {
     private byte[] salt;
     private URL avatarUrl;
     public ArrayList<Chat> chats;
+    public ArrayList<User> receivedFriendlyMessage;
+    public ArrayList<User> sentFriendlyMessage;
+    public ArrayList<User> friends;
 
     public User(String username, String passwordHash, String nickname, String email, String slogan, String securityQuestion, String securityAnswer, byte[] salt) {
         this.username = username;
@@ -37,6 +40,9 @@ public class User {
         this.highScore = 0;
         this.rank = Data.getUsers().size() + 1;
         this.avatarUrl = Main.class.getResource("/Images/DefaultAvatar.jpg");
+        this.receivedFriendlyMessage = new ArrayList<>();
+        this.sentFriendlyMessage = new ArrayList<>();
+        this.friends = new ArrayList<>();
     }
 
     public String getUsername() {
@@ -136,11 +142,35 @@ public class User {
         this.inGame = inGame;
     }
 
+    public ArrayList<Chat> getChats() {
+        return chats;
+    }
+    public ArrayList<User> getReceivedFriendlyMessage() {
+        return receivedFriendlyMessage;
+    }
+    public ArrayList<User> getSentFriendlyMessage() {
+        return sentFriendlyMessage;
+    }
+    public ArrayList<User> getFriends() {
+        return friends;
+    }
+    public void setReceivedFriendlyMessage(ArrayList<User> receivedFriendlyMessage) {
+        this.receivedFriendlyMessage = receivedFriendlyMessage;
+    }
+    public void setSentFriendlyMessage(ArrayList<User> sentFriendlyMessage) {
+        this.sentFriendlyMessage = sentFriendlyMessage;
+    }
+    public void setFriends(ArrayList<User> friends) {
+        this.friends = friends;
+    }
+
     public static class Sort implements Comparator<User> {
         public int compare(User a, User b) {
             return b.getHighScore() - a.getHighScore();
         }
     }
+
+
 
 }
 

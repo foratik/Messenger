@@ -14,6 +14,7 @@ public class Data {
 
     private static ArrayList<User> users = new ArrayList<>();
     private static ArrayList<Chat> allChats = new ArrayList<>();
+    private static ArrayList<Lobby> lobbies = new ArrayList<>();
     private static User stayedLoggedIn;
     private static String defaultMap;
 
@@ -115,6 +116,19 @@ public class Data {
         for (Chat chat : allChats)
             if (chat.id==id)
                 return chat;
+        return null;
+    }
+
+    public static ArrayList<Lobby> getLobbies() {
+        return lobbies;
+    }
+    public static synchronized Lobby getLobbyByIName(String lobbyName) {
+        Lobby joiningLobby;
+        for (Lobby lobby : Data.lobbies) {
+            if (lobby.getLobbyName().equals(lobbyName)) {
+                return lobby;
+            }
+        }
         return null;
     }
 }
